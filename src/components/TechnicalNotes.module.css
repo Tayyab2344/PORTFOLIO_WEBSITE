@@ -1,0 +1,100 @@
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.subtext {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.noteCard {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  background: var(--surface-color);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.noteCard:hover {
+  transform: translateX(10px);
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.05);
+}
+
+.meta {
+  flex: 0 0 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.dot {
+  display: none;
+}
+
+.noteTitle {
+  flex: 1;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 2rem;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.noteCard:hover .arrow {
+  transform: translateX(5px);
+  color: var(--primary-accent);
+}
+
+@media (max-width: 768px) {
+  .noteCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .meta {
+    flex: auto;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .dot {
+    display: inline;
+  }
+  
+  .noteTitle {
+    margin: 0 0 1.5rem 0;
+  }
+  
+  .arrow {
+    align-self: flex-end;
+  }
+}
