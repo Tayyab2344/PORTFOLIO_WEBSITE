@@ -7,6 +7,7 @@ interface MagneticButtonProps {
   children: React.ReactNode;
   className?: string;
   href?: string;
+  target?: string;
   onClick?: () => void;
   strength?: number;
 }
@@ -15,6 +16,7 @@ export default function MagneticButton({
   children,
   className = "",
   href,
+  target,
   onClick,
   strength = 0.3,
 }: MagneticButtonProps) {
@@ -56,6 +58,7 @@ export default function MagneticButton({
     >
       <Tag
         href={href || undefined}
+        target={target}
         onClick={onClick}
         className={className}
         data-hovered={hovered}

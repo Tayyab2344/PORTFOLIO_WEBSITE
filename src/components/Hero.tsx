@@ -2,7 +2,7 @@
 
 import styles from "./Hero.module.css";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import MagneticButton from "./MagneticButton";
 
 const gradientWords = [
@@ -16,7 +16,7 @@ const gradientWords = [
 
 export default function Hero() {
   /* ── Sequential stagger variants ── */
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -24,7 +24,7 @@ export default function Hero() {
     },
   };
 
-  const slideUp = {
+  const slideUp: Variants = {
     hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
@@ -34,14 +34,14 @@ export default function Hero() {
   };
 
   /* Word-by-word reveal for headline */
-  const wordContainer = {
+  const wordContainer: Variants = {
     hidden: {},
     visible: {
       transition: { staggerChildren: 0.06, delayChildren: 0.4 },
     },
   };
 
-  const wordReveal = {
+  const wordReveal: Variants = {
     hidden: { y: "110%", opacity: 0 },
     visible: {
       y: "0%",
