@@ -22,7 +22,7 @@ export default function Footer() {
         <div className={styles.brand}>
           <div className={styles.logo}>
             <span className={styles.logoMark}>&lt;/&gt;</span>
-            <span className={styles.logoText}>devkit</span>
+            <span className={styles.logoText}>Tayyab.dev</span>
           </div>
           <p className={styles.tagline}>
             Engineering systems for scale, intelligence, and impact.
@@ -57,7 +57,7 @@ export default function Footer() {
       <div className={styles.bottom}>
         <div className={`container ${styles.bottomInner}`}>
           <p className={styles.copyright}>
-            &copy; {new Date().getFullYear()} devkit. All rights reserved.
+            &copy; {new Date().getFullYear()} Tayyab.dev. All rights reserved.
           </p>
           <p className={styles.craft}>
             Crafted with precision.

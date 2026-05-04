@@ -1,100 +1,167 @@
 .header {
-  text-align: center;
-  margin-bottom: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3.5rem;
 }
 
 .sectionTitle {
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+  letter-spacing: -0.02em;
 }
 
 .subtext {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--text-secondary);
+  max-width: 300px;
+  text-align: right;
 }
 
-.list {
+/* ── Horizontal Scroll ── */
+.scrollContainer {
+  overflow-x: auto;
+  overflow-y: visible;
+  margin: 0 -2rem;
+  padding: 0 2rem 1rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollTrack {
   display: flex;
-  flex-direction: column;
   gap: 1.5rem;
-  max-width: 800px;
-  margin: 0 auto;
+  min-width: max-content;
 }
 
+/* ── Card ── */
 .noteCard {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  width: 320px;
+  min-height: 220px;
   padding: 2rem;
   background: var(--surface-color);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
+  border-radius: 14px;
+  transition:
+    transform 0.4s var(--ease-luxury),
+    box-shadow 0.4s var(--ease-luxury);
   position: relative;
   overflow: hidden;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.noteCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.noteCard:hover::before {
+  opacity: 1;
 }
 
 .noteCard:hover {
-  transform: translateX(10px);
-  border-color: rgba(124, 58, 237, 0.3);
-  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.05);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
-.meta {
-  flex: 0 0 150px;
+.cardTop {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
 }
 
-.dot {
-  display: none;
+.tag {
+  padding: 0.25rem 0.65rem;
+  background: rgba(124, 58, 237, 0.08);
+  border-radius: 5px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--primary-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.readTime {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
 }
 
 .noteTitle {
   flex: 1;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin: 0 2rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-.arrow {
-  font-size: 1.5rem;
-  color: var(--text-secondary);
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.noteCard:hover .arrow {
-  transform: translateX(5px);
+.noteCard:hover .noteTitle {
   color: var(--primary-accent);
 }
 
+.cardBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.readMore {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.3s ease, gap 0.3s ease;
+}
+
+.noteCard:hover .readMore {
+  color: var(--primary-accent);
+  gap: 0.6rem;
+}
+
+/* ── Responsive ── */
 @media (max-width: 768px) {
-  .noteCard {
+  .header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
   }
-  
-  .meta {
-    flex: auto;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 1rem;
+
+  .subtext {
+    text-align: left;
+    max-width: 100%;
   }
-  
-  .dot {
-    display: inline;
-  }
-  
-  .noteTitle {
-    margin: 0 0 1.5rem 0;
-  }
-  
-  .arrow {
-    align-self: flex-end;
+
+  .noteCard {
+    width: 280px;
+    min-height: 200px;
   }
 }

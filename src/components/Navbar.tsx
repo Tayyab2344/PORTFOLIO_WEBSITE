@@ -1,8 +1,9 @@
 "use client";
 
-import styles from './Navbar.module.css';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import styles from "./Navbar.module.css";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import MagneticButton from "./MagneticButton";
 
 const navLinks = [
   { label: "Capabilities", href: "#capabilities" },
@@ -16,10 +17,17 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 40);
+          ticking = false;
+        });
+      }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -28,25 +36,30 @@ export default function Navbar() {
       className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className={`container ${styles.inner}`}>
         <a href="#" className={styles.logo}>
           <span className={styles.logoMark}>&lt;/&gt;</span>
-          <span className={styles.logoText}>devkit</span>
+          <span className={styles.logoText}>Tayyab.dev</span>
         </a>
 
         <ul className={styles.links}>
           {navLinks.map((link) => (
             <li key={link.label}>
-              <a href={link.href} className={styles.link}>{link.label}</a>
+              <a href={link.href} className={styles.link}>
+                {link.label}
+              </a>
             </li>
           ))}
         </ul>
 
-        <a href="#contact" className={`glow-btn ${styles.contactBtn}`}>
+        <MagneticButton
+          className={`glow-btn ${styles.contactBtn}`}
+          href="#contact"
+        >
           Let&apos;s Talk
-        </a>
+        </MagneticButton>
 
         {/* Mobile hamburger */}
         <button

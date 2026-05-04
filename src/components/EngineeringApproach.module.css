@@ -1,73 +1,133 @@
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
 .sectionTitle {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 5rem;
   color: var(--text-primary);
-  text-align: center;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .stepsContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
+  gap: 2rem;
   position: relative;
 }
 
-.stepsContainer::before {
-  content: '';
+/* Horizontal connecting pipeline */
+.pipeline {
   position: absolute;
-  top: 35px;
-  left: 10%;
-  right: 10%;
+  top: 52px;
+  left: 12%;
+  right: 12%;
   height: 1px;
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(124, 58, 237, 0.3) 20%,
+    rgba(34, 211, 238, 0.2) 50%,
+    rgba(124, 58, 237, 0.3) 80%,
+    transparent 100%
+  );
+  transform-origin: left center;
   z-index: 0;
 }
 
 .stepCard {
   background: transparent;
-  padding: 2rem 1rem;
+  padding: 0 1.5rem;
   position: relative;
   z-index: 1;
   text-align: center;
 }
 
 .stepNumber {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.numberCircle {
+  width: 72px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--bg-color);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  font-size: 1.2rem;
-  font-weight: 700;
   color: var(--primary-accent);
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.1);
+  box-shadow:
+    0 0 0 1px rgba(124, 58, 237, 0.15),
+    0 0 25px rgba(124, 58, 237, 0.08);
+  transition: box-shadow 0.4s var(--ease-luxury);
+}
+
+.stepCard:hover .numberCircle {
+  box-shadow:
+    0 0 0 1px rgba(124, 58, 237, 0.3),
+    0 0 40px rgba(124, 58, 237, 0.15);
+}
+
+.numberText {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .stepTitle {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .stepDescription {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.detailTags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 0.3rem 0.7rem;
+  background: rgba(124, 58, 237, 0.06);
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
 }
 
 @media (max-width: 768px) {
   .stepsContainer {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 3rem;
   }
-  
-  .stepsContainer::before {
+
+  .pipeline {
     display: none;
   }
 }
