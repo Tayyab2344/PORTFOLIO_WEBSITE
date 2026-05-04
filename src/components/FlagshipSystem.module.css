@@ -223,3 +223,27 @@
     flex-wrap: wrap;
   }
 }
+
+@media (max-width: 480px) {
+  .content {
+    padding: 2rem 1.5rem;
+  }
+
+  .visual {
+    min-height: 280px;
+    padding: 1rem;
+  }
+
+  .nodeIconWrap {
+    width: 28px;
+    height: 28px;
+  }
+
+  .nodeLabel {
+    font-size: 0.6rem;
+  }
+  
+  .metrics {
+    gap: 1rem;
+  }
+}

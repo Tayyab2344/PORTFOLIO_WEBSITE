@@ -199,3 +199,31 @@
     max-width: 320px;
   }
 }
+
+@media (max-width: 600px) {
+  .heroSection {
+    padding-top: 100px;
+    gap: 2rem;
+  }
+
+  .btnGroup {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .btnGroup > * {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .imageContainer {
+    max-width: 260px;
+  }
+  
+  .glowBg {
+    width: 400px;
+    height: 400px;
+  }
+}
