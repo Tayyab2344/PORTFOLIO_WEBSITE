@@ -10,11 +10,11 @@ const systems = [
   {
     title: "AIPP",
     role: "Lead Developer",
-    stack: ["React", "Tailwind", "CMS"],
+    stack: ["Flutter", "Next.js", "Vercel"],
     color: "var(--primary-accent)",
     span: "normal",
     href: "https://www.aipp.org.pk/",
-    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=2069&auto=format&fit=crop"
   },
   {
     title: "ZoonLabs",
