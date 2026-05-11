@@ -8,46 +8,52 @@ import { ArrowUpRight } from "lucide-react";
 
 const systems = [
   {
+    title: "RecyConnect Marketplace",
+    role: "Full-Stack Dev",
+    stack: ["Next.js", "AI", "Stripe"],
+    color: "var(--secondary-accent)",
+    span: "tall",
+    href: "https://recyconnect.ranatayyab.dev/",
+  },
+  {
+    title: "AIPP",
+    role: "Lead Developer",
+    stack: ["React", "Tailwind", "CMS"],
+    color: "var(--primary-accent)",
+    span: "normal",
+    href: "https://www.aipp.org.pk/",
+  },
+  {
+    title: "ZoonLabs",
+    role: "Frontend Architect",
+    stack: ["React", "Three.js", "GSAP"],
+    color: "#e63946",
+    span: "normal",
+    href: "https://zoonlabs.com/",
+  },
+  {
+    title: "Abbottabad Police eDevice",
+    role: "Full-Stack Engineer",
+    stack: ["React", "Node.js", "Postgres"],
+    color: "var(--secondary-accent)",
+    span: "tall",
+    href: "https://abbottabadpolice.kp.gov.pk/eDevice/about",
+  },
+  {
     title: "AI Complaint Intelligence",
     role: "Lead Engineer",
     stack: ["NestJS", "NLP", "Redis"],
     color: "var(--primary-accent)",
-    span: "tall",
-  },
-  {
-    title: "RecyConnect Marketplace",
-    role: "Full-Stack Dev",
-    stack: ["MERN", "Flutter", "Stripe"],
-    color: "var(--secondary-accent)",
     span: "normal",
-  },
-  {
-    title: "Distributed Trading Engine",
-    role: "Backend Architect",
-    stack: ["Node.js", "gRPC", "Postgres"],
-    color: "var(--primary-accent)",
-    span: "normal",
+    href: "#",
   },
   {
     title: "Enterprise Identity Vault",
     role: "Security Lead",
     stack: ["OAuth2", "JWT", "RBAC"],
     color: "var(--secondary-accent)",
-    span: "tall",
-  },
-  {
-    title: "Predictive Supply Chain",
-    role: "ML Engineer",
-    stack: ["Python", "TensorFlow", "Kafka"],
-    color: "var(--primary-accent)",
     span: "normal",
-  },
-  {
-    title: "Real-Time Analytics Dashboard",
-    role: "Frontend Lead",
-    stack: ["Next.js", "D3.js", "WebSocket"],
-    color: "var(--secondary-accent)",
-    span: "normal",
+    href: "#",
   },
 ];
 
@@ -74,7 +80,7 @@ export default function SelectedSystems() {
             className={system.span === "tall" ? styles.tall : ""}
           >
             <FlashlightCard className={styles.card}>
-              <div className={styles.cardInner}>
+              <a href={system.href} target={system.href !== "#" ? "_blank" : "_self"} rel="noopener noreferrer" className={styles.cardInner} style={{ textDecoration: 'none' }}>
                 {/* Thumbnail placeholder — low saturation block */}
                 <div className={styles.thumbnail}>
                   <div
@@ -102,7 +108,7 @@ export default function SelectedSystems() {
                 <div className={styles.arrow}>
                   <ArrowUpRight size={18} strokeWidth={1.5} />
                 </div>
-              </div>
+              </a>
             </FlashlightCard>
           </ScrollReveal>
         ))}

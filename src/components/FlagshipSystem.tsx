@@ -84,7 +84,7 @@ export default function FlagshipSystem() {
               </ScrollReveal>
 
               <ScrollReveal delay={500}>
-                <MagneticButton className={`glow-btn ${styles.ctaBtn}`} href="https://recyconnect.com" target="_blank">
+                <MagneticButton className={`glow-btn ${styles.ctaBtn}`} href="https://recyconnect.ranatayyab.dev/" target="_blank">
                   Explore RecyConnect
                 </MagneticButton>
               </ScrollReveal>
