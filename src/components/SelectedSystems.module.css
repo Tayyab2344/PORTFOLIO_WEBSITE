@@ -69,6 +69,14 @@
   min-height: 100px;
 }
 
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 150px;
+}
+
 /* ── Metadata ── */
 .meta {
   flex: 0 0 auto;

@@ -14,6 +14,7 @@ const systems = [
     color: "var(--secondary-accent)",
     span: "tall",
     href: "https://recyconnect.ranatayyab.dev/",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
   },
   {
     title: "AIPP",
@@ -22,6 +23,7 @@ const systems = [
     color: "var(--primary-accent)",
     span: "normal",
     href: "https://www.aipp.org.pk/",
+    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop"
   },
   {
     title: "ZoonLabs",
@@ -30,6 +32,7 @@ const systems = [
     color: "#e63946",
     span: "normal",
     href: "https://zoonlabs.com/",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop"
   },
   {
     title: "Abbottabad Police eDevice",
@@ -38,23 +41,8 @@ const systems = [
     color: "var(--secondary-accent)",
     span: "tall",
     href: "https://abbottabadpolice.kp.gov.pk/eDevice/about",
-  },
-  {
-    title: "AI Complaint Intelligence",
-    role: "Lead Engineer",
-    stack: ["NestJS", "NLP", "Redis"],
-    color: "var(--primary-accent)",
-    span: "normal",
-    href: "#",
-  },
-  {
-    title: "Enterprise Identity Vault",
-    role: "Security Lead",
-    stack: ["OAuth2", "JWT", "RBAC"],
-    color: "var(--secondary-accent)",
-    span: "normal",
-    href: "#",
-  },
+    image: "https://images.unsplash.com/photo-1453873531674-2151bcd01707?q=80&w=1974&auto=format&fit=crop"
+  }
 ];
 
 export default function SelectedSystems() {
@@ -81,14 +69,18 @@ export default function SelectedSystems() {
           >
             <FlashlightCard className={styles.card}>
               <a href={system.href} target={system.href !== "#" ? "_blank" : "_self"} rel="noopener noreferrer" className={styles.cardInner} style={{ textDecoration: 'none' }}>
-                {/* Thumbnail placeholder — low saturation block */}
+                {/* Thumbnail */}
                 <div className={styles.thumbnail}>
-                  <div
-                    className={styles.thumbnailGradient}
-                    style={{
-                      background: `linear-gradient(135deg, ${system.color}15 0%, ${system.color}05 100%)`,
-                    }}
-                  />
+                  {system.image ? (
+                    <img src={system.image} alt={system.title} className={styles.thumbnailImage} />
+                  ) : (
+                    <div
+                      className={styles.thumbnailGradient}
+                      style={{
+                        background: `linear-gradient(135deg, ${system.color}15 0%, ${system.color}05 100%)`,
+                      }}
+                    />
+                  )}
                 </div>
 
                 {/* Metadata */}
