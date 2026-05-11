@@ -140,6 +140,14 @@
   justify-content: center;
   padding: 3rem;
   position: relative;
+  overflow: hidden;
+}
+
+.diagramWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .diagram {

@@ -92,7 +92,7 @@ export default function FlagshipSystem() {
 
             {/* Right: Node-link system diagram */}
             <div className={styles.visual}>
-              <ScrollReveal delay={300}>
+              <ScrollReveal delay={300} className={styles.diagramWrapper}>
                 <div className={styles.diagram}>
                   <svg
                     className={styles.diagramSvg}
