@@ -8,15 +8,6 @@ import { ArrowUpRight } from "lucide-react";
 
 const systems = [
   {
-    title: "RecyConnect Marketplace",
-    role: "Full-Stack Dev",
-    stack: ["Next.js", "AI", "Stripe"],
-    color: "var(--secondary-accent)",
-    span: "tall",
-    href: "https://recyconnect.ranatayyab.dev/",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
-  },
-  {
     title: "AIPP",
     role: "Lead Developer",
     stack: ["React", "Tailwind", "CMS"],
