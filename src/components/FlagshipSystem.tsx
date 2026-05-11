@@ -4,31 +4,11 @@ import styles from "./FlagshipSystem.module.css";
 import ScrollReveal from "./ScrollReveal";
 import MagneticButton from "./MagneticButton";
 import { motion } from "framer-motion";
-import { Home, BrainCircuit, Store, Truck, Warehouse, Gift } from "lucide-react";
-
 const stats = [
   { value: "4+", label: "User Roles" },
   { value: "AI", label: "Classification" },
   { value: "Real-Time", label: "Pickup System" },
   { value: "Digital", label: "Marketplace" },
-];
-
-const nodes = [
-  { id: "house", label: "Household", icon: Home, x: 20, y: 25 },
-  { id: "ai", label: "AI Classifier", icon: BrainCircuit, x: 50, y: 15 },
-  { id: "market", label: "Marketplace", icon: Store, x: 80, y: 25 },
-  { id: "collector", label: "Collector", icon: Truck, x: 80, y: 65 },
-  { id: "warehouse", label: "Warehouse/Co.", icon: Warehouse, x: 50, y: 75 },
-  { id: "rewards", label: "Payments/Rewards", icon: Gift, x: 20, y: 65 },
-];
-
-const edges = [
-  ["house", "ai"],
-  ["ai", "market"],
-  ["market", "collector"],
-  ["collector", "warehouse"],
-  ["warehouse", "rewards"],
-  ["rewards", "house"],
 ];
 
 export default function FlagshipSystem() {
@@ -90,73 +70,23 @@ export default function FlagshipSystem() {
               </ScrollReveal>
             </div>
 
-            {/* Right: Node-link system diagram */}
+            {/* Right: Product Mockup */}
             <div className={styles.visual}>
               <ScrollReveal delay={300} className={styles.diagramWrapper}>
-                <div className={styles.diagram}>
-                  <svg
-                    className={styles.diagramSvg}
-                    viewBox="0 0 100 100"
-                    preserveAspectRatio="xMidYMid meet"
-                  >
-                    {/* Edges */}
-                    {edges.map(([from, to], i) => {
-                      const f = nodes.find((n) => n.id === from)!;
-                      const t = nodes.find((n) => n.id === to)!;
-                      return (
-                        <motion.line
-                          key={i}
-                          x1={f.x}
-                          y1={f.y}
-                          x2={t.x}
-                          y2={t.y}
-                          stroke="url(#lineGradient)"
-                          strokeWidth="0.4"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 1 }}
-                          viewport={{ once: true }}
-                          transition={{
-                            duration: 1.5,
-                            delay: 0.8 + i * 0.15,
-                            ease: [0.16, 1, 0.3, 1],
-                          }}
-                        />
-                      );
-                    })}
-                    <defs>
-                      <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="rgba(124, 58, 237, 0.4)" />
-                        <stop offset="100%" stopColor="rgba(16, 185, 129, 0.4)" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-
-                  {/* Nodes */}
-                  {nodes.map((node, i) => (
-                    <motion.div
-                      key={node.id}
-                      className={styles.node}
-                      style={{ left: `${node.x}%`, top: `${node.y}%` }}
-                      initial={{ scale: 0, opacity: 0, y: 10 }}
-                      whileInView={{ scale: 1, opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 0.6,
-                        delay: 0.5 + i * 0.12,
-                        ease: [0.16, 1, 0.3, 1],
-                      }}
-                    >
-                      <motion.div 
-                        className={styles.nodeIconWrap}
-                        animate={{ y: [0, -4, 0] }}
-                        transition={{ duration: 4, repeat: Infinity, delay: i * 0.4, ease: "easeInOut" }}
-                      >
-                        <node.icon size={16} strokeWidth={1.5} className={styles.nodeIcon} />
-                      </motion.div>
-                      <span className={styles.nodeLabel}>{node.label}</span>
-                    </motion.div>
-                  ))}
-                </div>
+                <motion.div 
+                  className={styles.mockupWrapper}
+                  initial={{ rotateY: 15, rotateX: 5, scale: 0.9, opacity: 0 }}
+                  whileInView={{ rotateY: 0, rotateX: 0, scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                >
+                  <img 
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" 
+                    alt="RecyConnect Dashboard Mockup" 
+                    className={styles.mockupImage} 
+                  />
+                  <div className={styles.mockupGlow} />
+                </motion.div>
               </ScrollReveal>
             </div>
           </div>
