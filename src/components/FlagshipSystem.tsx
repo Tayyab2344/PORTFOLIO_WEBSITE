@@ -75,14 +75,17 @@ export default function FlagshipSystem() {
               <ScrollReveal delay={300} className={styles.diagramWrapper}>
                 <motion.div 
                   className={styles.mockupWrapper}
-                  initial={{ rotateY: 15, rotateX: 5, scale: 0.9, opacity: 0 }}
-                  whileInView={{ rotateY: 0, rotateX: 0, scale: 1, opacity: 1 }}
+                  initial={{ rotateY: 25, rotateX: 5, scale: 0.9, opacity: 0 }}
+                  whileInView={{ rotateY: -10, rotateX: 5, scale: 1, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, ease: "easeOut" }}
                 >
+                  {/* Phone Bezel / Notch */}
+                  <div className={styles.phoneNotch}></div>
+                  
                   <img 
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" 
-                    alt="RecyConnect Dashboard Mockup" 
+                    src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop" 
+                    alt="AI Mobile App Mockup" 
                     className={styles.mockupImage} 
                   />
                   <div className={styles.mockupGlow} />

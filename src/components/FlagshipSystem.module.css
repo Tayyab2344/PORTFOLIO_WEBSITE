@@ -153,40 +153,62 @@
 .mockupWrapper {
   position: relative;
   width: 100%;
-  max-width: 550px;
-  border-radius: 12px;
+  max-width: 320px;
+  aspect-ratio: 9 / 19;
+  border-radius: 40px;
+  background: #0a0a0f;
+  padding: 10px;
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.6), 
+    inset 0 0 0 2px rgba(255, 255, 255, 0.15),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
   perspective: 1000px;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+.phoneNotch {
+  position: absolute;
+  top: 10px;
+  width: 40%;
+  height: 25px;
+  background: #0a0a0f;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  z-index: 5;
 }
 
 .mockupImage {
   width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  height: 100%;
+  object-fit: cover;
+  border-radius: 32px;
   display: block;
   position: relative;
   z-index: 2;
   transition: transform 0.5s var(--ease-luxury);
 }
 
-.mockupWrapper:hover .mockupImage {
-  transform: translateY(-5px);
+.mockupWrapper:hover {
+  transform: translateY(-5px) rotateY(-5deg) rotateX(5deg) !important;
 }
 
 .mockupGlow {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) translateZ(-50px);
   width: 120%;
   height: 120%;
   background: radial-gradient(
     circle,
-    rgba(16, 185, 129, 0.2) 0%,
+    rgba(16, 185, 129, 0.3) 0%,
     transparent 60%
   );
-  filter: blur(40px);
-  z-index: 1;
+  filter: blur(50px);
+  z-index: 0;
   pointer-events: none;
 }
 
